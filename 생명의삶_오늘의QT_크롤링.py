@@ -1,9 +1,9 @@
 import requests
 from bs4 import BeautifulSoup
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 
 def get_daily_bible_reading():
-    today = datetime.today().strftime("%Y-%m-%d")  # YYYY-mm-dd 형태의 시간 출력
+    today = datetime.now(timezone(timedelta(hours=9))).strftime("%Y-%m-%d") // 한국시간대로 날짜변경
     today1 = datetime.today().strftime("%Y.%m.%d (%a)")  # 오늘의 날짜와 요일을 가져옵니다
     today1 = today1.replace('Mon', '월').replace('Tue', '화').replace('Wed', '수').replace('Thu', '목').replace('Fri', '금').replace('Sat', '토').replace('Sun', '일')
 
